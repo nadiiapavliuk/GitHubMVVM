@@ -30,7 +30,7 @@ class RepositoryDetailViewController: UIViewController {
         super.viewDidLoad()
         initVM()
     }
-
+    
     func initVM() {
         viewModel.initFetch()
     }

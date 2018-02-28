@@ -70,7 +70,7 @@ extension RepositoryListViewController: UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfCells
     }
@@ -79,7 +79,7 @@ extension RepositoryListViewController: UITableViewDelegate, UITableViewDataSour
         return 100.0
     }
     
-
+    
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
         self.viewModel.userPressed(at: indexPath)
@@ -99,8 +99,8 @@ extension RepositoryListViewController {
             let repository = viewModel.selectedRepository {
             //destination.nameLabel.text = repository.name
             //destination.createdLabel.text = repository.created_at
-          
-           // destination.imageUrl = repository.image_url
+            
+            // destination.imageUrl = repository.image_url
         }
     }
 }

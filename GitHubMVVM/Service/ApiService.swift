@@ -8,19 +8,15 @@
 
 import Foundation
 
-enum APIError: String, Error {
-    case noNetwork = "No Network"
-    case serverOverload = "Server is overloaded"
-}
 
 protocol APIServiceProtocol {
-    func fetchAllRepositories( complete: @escaping ( _ success: Bool, _ repositories: [Repository], _ error: APIError? )->() )
+    func fetchAllRepositories( complete: @escaping ( _ success: Bool, _ repositories: [Repository], _ error: Error? )->() )
 }
 
 class APIService: APIServiceProtocol {
-    
-    func fetchAllRepositories( complete: @escaping ( _ success: Bool, _ repositories: [Repository], _ error: APIError? )->() ) {
-        
+
+    func fetchAllRepositories( complete: @escaping ( _ success: Bool, _ repositories: [Repository], _ error: Error? )->() ) {
+
         let url = URL(string: "https://api.github.com/users/cocoapods/repos?page=1&per_page=100;%20rel=next")
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error == nil {
@@ -35,18 +31,7 @@ class APIService: APIServiceProtocol {
                 }
             }
             }.resume()
-        
+
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
